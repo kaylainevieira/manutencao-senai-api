@@ -18,7 +18,7 @@ public class Tecnico {
     
 	@Getter @Setter
 	@EqualsAndHashCode.Include
-	private int id;
+	private Integer id;
 	
 	@NotEmpty(message = "O nome não pode ser nulo.")
 	@Size(max = 100, message = "O nome não pode conter mais de 100 caracteres.")
@@ -30,4 +30,8 @@ public class Tecnico {
 	@Getter @Setter
 	private LocalDate dataDeAdmissao;
 	
+	
+	public boolean isNovo() {
+		return getId() == null || getId() == 0;
+	}
 }
