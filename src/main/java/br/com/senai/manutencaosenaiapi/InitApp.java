@@ -1,7 +1,5 @@
 package br.com.senai.manutencaosenaiapi;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,9 +26,6 @@ public class InitApp {
 			try {
 				Tecnico novoTecnico = new Tecnico();
 				novoTecnico.setNomeCompleto("José Soares.");
-				
-//				LocalDate dataDeAdmissao = LocalDate.of(2022, 4, 7);
-//				novoTecnico.setDataDeAdmissao(dataDeAdmissao);
 
 				this.service.inserir(novoTecnico);	
 				System.out.println("Técnico salvo com sucesso.");
