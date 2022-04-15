@@ -1,5 +1,9 @@
 package br.com.senai.manutencaosenaiapi;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -7,7 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import br.com.senai.manutencaosenaiapi.entity.Cliente;
+import br.com.senai.manutencaosenaiapi.entity.OrdemDeServico;
 import br.com.senai.manutencaosenaiapi.entity.Peca;
+import br.com.senai.manutencaosenaiapi.entity.Tecnico;
+import br.com.senai.manutencaosenaiapi.service.OrdemDeServicoService;
 import br.com.senai.manutencaosenaiapi.service.PecaService;
 
 @SpringBootApplication
@@ -25,6 +33,9 @@ public class InitApp {
 	
 	@Autowired
 	private PecaService pecaService;
+	
+	@Autowired
+	private OrdemDeServicoService ordemService;
 	
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ac) {
@@ -57,11 +68,33 @@ public class InitApp {
 //				this.clienteService.inserir(novoCliente);
 //                System.out.println("Cliente salvo com sucesso");
 				
-				Peca novaPeca = new Peca();
-				novaPeca.setDescricao("Teclado");
-				novaPeca.setQtdEmEstoque(10);
-				System.out.println(novaPeca);
-				this.pecaService.inserir(null);
+//				Peca novaPeca = new Peca();
+//				novaPeca.setDescricao("Teclado");
+//				novaPeca.setQtdEmEstoque(10);
+//				System.out.println(novaPeca);
+//				this.pecaService.inserir(null);
+				
+				
+				OrdemDeServico novaOrdem = new OrdemDeServico();
+				
+				Cliente cliente = new Cliente();
+				cliente.setId(1);
+				novaOrdem.setCliente(cliente);
+				novaOrdem.setDataDeAbertura(LocalDate.of(2022, 4, 14));
+				novaOrdem.setDescricaoDoProblema("Problema.");
+				
+				Tecnico tecnico = new Tecnico();
+				tecnico.setId(1);
+				novaOrdem.setTecnico(tecnico);
+				
+				Peca peca = new Peca();
+//				peca.setId(1);
+
+				List<Peca> pecas = new ArrayList<Peca>();
+				pecas.add(peca);
+				novaOrdem.setPecasDoReparo(pecas);
+				
+				this.ordemService.inserir(novaOrdem);
 				
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
