@@ -1,6 +1,5 @@
 package br.com.senai.manutencaosenaiapi.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -49,7 +48,7 @@ public class ClienteService {
 			@NotEmpty(message = "O nome para busca é obrigatório.")
 			@NotBlank(message = "O nome para busca não deve ser vazio.")
 			String nome) {
-		return repository.listarPor(nome);
+		return repository.listarPor("%" + nome + "%");
 	}
 	
 	public void removerPor(
