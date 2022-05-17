@@ -66,4 +66,5 @@ public class OrdemDeServico {
 	@NotEmpty(message = "Deve haver ao menos uma peça de reparo.")
 	private List<Peca> pecasDoReparo;
 
+	
 }

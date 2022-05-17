@@ -38,9 +38,10 @@ public class PecaService {
 		return pecaAtualizada;
 	}
 	
-	public void removerPor(@NotNull(message = "O id da peça para remoção não pode ser nulo")
-						   @Min(value = 1, message = "O id da peça deve ser maior que 1")
-						   Integer id) {
+	public void removerPor(
+			@NotNull(message = "O id da peça para remoção não pode ser nulo.")
+			@Min(value = 1, message = "O id da peça deve ser maior que 1.")
+		    Integer id) {
 		this.repository.deleteById(id);
 	}
 	

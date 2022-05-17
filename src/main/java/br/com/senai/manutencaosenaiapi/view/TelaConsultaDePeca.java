@@ -174,3 +174,4 @@ public class TelaConsultaDePeca extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 	}
 }
+
