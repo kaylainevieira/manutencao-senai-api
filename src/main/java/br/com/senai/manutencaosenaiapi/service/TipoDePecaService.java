@@ -22,7 +22,7 @@ public class TipoDePecaService {
 	@Autowired
 	private TiposDePecaRepository repository;
 	
-	private TipoDePeca inserir(
+	public TipoDePeca inserir(
 			@Valid
 			@NotNull(message = "O tipo de peça não pode ser nulo.")
 			TipoDePeca novoTipoDePeca) {
@@ -30,7 +30,7 @@ public class TipoDePecaService {
 		return tipoDePecaSalvo;
 	}
 	
-	private TipoDePeca alterar (
+	public TipoDePeca alterar (
 			@Valid
 			@NotNull(message = "O tipo de peça não pode ser nulo.")
 			TipoDePeca tipoDePecaSalvo) {

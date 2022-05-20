@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -12,6 +13,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity(name = "TipoDePeca")
+@Table(name = "tipos_pecas")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class TipoDePeca {
